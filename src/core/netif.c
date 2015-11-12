@@ -1042,7 +1042,7 @@ netif_ip6_addr_set_parts(struct netif *netif, s8_t addr_idx, u32_t i0, u32_t i1,
     LWIP_DEBUGF(NETIF_DEBUG | LWIP_DBG_STATE, ("netif_ip6_addr_set: netif address being changed\n"));
 
     if (netif_ip6_addr_state(netif, addr_idx) & IP6_ADDR_VALID) {
-#if LWIP_TCP || LWIP_UDP
+#if LWIP_TCP || LWIP_UDP || LWIP_RAW
       ip_addr_t new_ipaddr;
       IP_ADDR6(&new_ipaddr, i0, i1, i2, i3);
 #endif /* LWIP_TCP || LWIP_UDP */

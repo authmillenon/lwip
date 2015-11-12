@@ -635,7 +635,7 @@ nd6_input(struct pbuf *p, struct netif *inp)
           if (i >= 0) {
             neighbor_cache[i].netif = inp;
             MEMCPY(neighbor_cache[i].lladdr, lladdr_opt->addr, inp->hwaddr_len);
-            ip6_addr_set(&(neighbor_cache[i].next_hop_address), &tmp);
+            ip6_addr_copy(neighbor_cache[i].next_hop_address, tmp);
 
             /* Receiving a message does not prove reachability: only in one direction.
              * Delay probe in case we get confirmation of reachability from upper layer (TCP). */
